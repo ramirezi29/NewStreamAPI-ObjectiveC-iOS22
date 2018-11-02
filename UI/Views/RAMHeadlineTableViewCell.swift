@@ -18,7 +18,7 @@ class RAMHeadlineTableViewCell: UITableViewCell {
     // MARK: - Landing pad
     
     // NOTE: - ***** need to include @objc in order for our swift file to be seen by the )bjec C file 
-   @objc var news: RAMNews?{
+    @objc var news: RAMNews?{
         didSet{
             updateViews()
             fetchAndSetImage()
@@ -30,10 +30,10 @@ class RAMHeadlineTableViewCell: UITableViewCell {
     func updateViews() {
         guard let news = news else {return}
         titleLabel.text = news.title
-        
-        // NOTE: - author is nullable, we did this in the modelfile
-     authorLabel.text = news.author
         sourceLabel.text = news.source
+        // NOTE: - author is nullable, we did this in the modelfile
+        let author = nullToNil(value: news.author as AnyObject)
+        authorLabel.text = author as? String ?? "None"
     }
     
     func fetchAndSetImage(){
@@ -55,4 +55,11 @@ class RAMHeadlineTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func nullToNil(value : AnyObject?) -> AnyObject? {
+        if value is NSNull {
+            return nil
+        } else {
+            return value
+        }
+    }
 }

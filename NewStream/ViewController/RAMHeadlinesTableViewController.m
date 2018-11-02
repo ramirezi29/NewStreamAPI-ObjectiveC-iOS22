@@ -40,7 +40,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
+    
     // NOTE: - Needs to be self. not
     return [self.articles count];
 }
@@ -57,18 +57,29 @@
 
 
 #pragma mark - Navigation
+//
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    if ([[segue identifier] == @"toDetailVC" ]){
+//        RAMNewsDetailViewController *destinationVC = [segue destinationViewController];
+//        NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
+//        RAMNews *news = self.articles[indexPath.row];
+//        RAMHeadlineTableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
+//        UIImage *photo = [[selectedCell newsImageView] image];
+//        destinationVC.photo = photo;
+//        destinationVC.news = news
+//    }
+//}
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] == @"toDetailVC" ]){
+    if ([[segue identifier] isEqual: @"toDetailVC"]){
         RAMNewsDetailViewController *destinationVC = [segue destinationViewController];
         NSIndexPath *indexPath = [[self tableView] indexPathForSelectedRow];
         RAMNews *news = self.articles[indexPath.row];
-        RAMHeadlineTableViewCell *selectedCell = UIImage *photo = [self.tableView cellForRowAtIndexPath:indexPath];
+        RAMHeadlineTableViewCell *selectedCell = [self.tableView cellForRowAtIndexPath:indexPath];
         UIImage *photo = [[selectedCell newsImageView] image];
-        destinationVC
-        destinationVC.news = news
+        destinationVC.photo = photo;
+        destinationVC.news = news;
     }
 }
-
 
 @end

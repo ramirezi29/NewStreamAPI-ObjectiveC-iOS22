@@ -17,7 +17,7 @@
     return @"https://newsapi.org/v2/top-headlines";
 }
 
-+ (void)fetchTopHeadlinesWithBlock:(void (^)(NSArray * _Nullable))block
++ (void)fetchTopHeadlinesWithBlock:(void (^)(NSArray<RAMNews *> * _Nullable))block
 {
     // Step 1: Construct our URL
     NSURL *baseurl = [[NSURL alloc] initWithString: [RAMNewsAPIClient baseUrlString]];
@@ -66,7 +66,9 @@
         
         for (NSDictionary *dictionary in articlesDictionary){
             RAMNews *news = [[RAMNews alloc] initWithDictionary:dictionary];
-            [articles addObject:news];
+            if(news) {
+                [articles addObject:news];
+            }
         }
         block(articles);
     }]resume];
