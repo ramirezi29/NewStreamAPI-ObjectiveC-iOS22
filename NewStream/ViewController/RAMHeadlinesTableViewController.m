@@ -21,7 +21,6 @@
 
 @implementation RAMHeadlinesTableViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -54,7 +53,6 @@
     
     return cell;
 }
-
 
 #pragma mark - Navigation
 //

@@ -25,8 +25,6 @@ class RAMHeadlineTableViewCell: UITableViewCell {
         }
     }
     
-    
-    
     func updateViews() {
         guard let news = news else {return}
         titleLabel.text = news.title
@@ -44,11 +42,6 @@ class RAMHeadlineTableViewCell: UITableViewCell {
                 self.newsImageView.image = photo
             }
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
