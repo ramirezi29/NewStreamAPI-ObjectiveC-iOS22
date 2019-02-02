@@ -20,9 +20,9 @@
     /*
      
      */
-//    [RAMNewsAPIClient fetchTopHeadlinesWithBlock:^(NSArray<RAMNews *> * _Nullable articles) {
-//        NSLog(articles);
-//    }];
+    //    [RAMNewsAPIClient fetchTopHeadlinesWithBlock:^(NSArray<RAMNews *> * _Nullable articles) {
+    //        NSLog(articles);
+    //    }];
     
     [RAMNewsAPIClient fetchImageForUrl:@"https://cdn.cnn.com/cnnnext/dam/assets/180925171014-john-bolton-super-tease.jpg"
                              withBlock:^(UIImage * _Nullable photo) {

@@ -15,7 +15,6 @@ class RAMNewsDetailViewController: UIViewController {
     @IBOutlet weak var authoLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     
-    
     @objc var news: RAMNews? {
         didSet{
             //IN ORDER TO AVOID RACE CONDITIONS. THE DATA LOADING BEFORE ITS READY
